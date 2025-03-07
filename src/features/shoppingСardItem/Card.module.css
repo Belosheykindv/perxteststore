@@ -1,0 +1,7 @@
+.cartContainer {
+    border: 1px solid green;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
