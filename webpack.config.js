@@ -29,6 +29,15 @@ export const module = {
         },
       ],
     },
+    {
+      test: /\.module.s[ac]ss$/i,
+      use: [
+        'style-loader',
+        'css-loader',
+        'postcss-loader',
+        'sass-loader',
+      ],
+    },
   ],
 }
 export const output = {

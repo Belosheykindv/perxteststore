@@ -4,11 +4,11 @@
     "paths": {
       "app/*": ["app/*"],
       "entities/*": ["entities/*"],
-      "features/*":  ["features/*"],
+      "features/*": ["features/*"],
       "pages/*":  ["pages/*"],
       "processes/*": [ "processes/*"],
       "shared/*":  ["shared/*"],
-      "widgets/*":  ["widgets/*"]
+      "widgets/*":  ["widgets/*"],
     },
     "target": "ES2022",
     "useDefineForClassFields": true,
