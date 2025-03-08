@@ -1,0 +1,28 @@
+.header {
+    width: calc(100% - 24px);
+    height: 60px;
+    border: 1px solid black;
+    background-color: blueviolet;
+    border-radius: 8px;
+    color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-inline: 24px;
+
+    a {
+        text-decoration: none;
+        height: fit-content;
+    }
+
+    article {
+        color: white;
+        font-size: 30px;
+
+        &:hover {
+            cursor: pointer;
+            color: gold;
+        }
+    }
+
+}

@@ -1,0 +1,17 @@
+.cartContainer {
+    width: calc(100% - 18px);
+    border: 1px solid violet;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        aspect-ratio: 4/3;
+        object-fit: contain;
+        max-width: 140px;
+    }
+    article {
+        font-size: 40px;
+    }
+}
