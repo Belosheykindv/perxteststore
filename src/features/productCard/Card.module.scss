@@ -1,0 +1,41 @@
+.cardContainer {
+    position: relative;
+    user-select: none;
+}
+
+.metaTitle {
+    font-size: 20px;
+}
+
+.metaPrice {
+    font-size: 24px;
+    color: grey;
+}
+
+.counted {
+    border: 2px solid blue;
+
+    &:hover {
+        border: 2px solid blue;
+    }
+}
+
+.countNumber {
+    background-color: blue;
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-20%) translateY(-20%);
+
+    article {
+        color: white;
+        font-size: 15px;
+    }
+}

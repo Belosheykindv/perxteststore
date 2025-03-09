@@ -1,0 +1,18 @@
+.footerContainer {
+    width: calc(100% - 24px);
+    height: 60px;
+    border: 1px solid green;
+    border-radius: 8px;
+    padding-inline: 24px;
+    display: flex;
+    justify-content: space-between;
+
+    article {
+        font-size: 24px;
+    }
+
+    .finalPrice {
+        font-size: 36px;
+        color: green;
+    }
+}

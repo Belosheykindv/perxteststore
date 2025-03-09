@@ -1,14 +1,17 @@
 import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit'
 
-type InitStateT = {
-  items: ProductItem[]
+export interface ResultItem extends ProductItem {
+  count: number
 }
-const storedCartItems: ProductItem[] = (() => {
+type InitStateT = {
+  items: ResultItem[]
+}
+const storedCartItems: ResultItem[] = (() => {
   const storedData = sessionStorage.getItem('cartData')
 
   if (storedData) {
     try {
-      return JSON.parse(storedData) as ProductItem[]
+      return JSON.parse(storedData) as ResultItem[]
     } catch (error) {
       console.error('Error parsing dealersData from sessionStorage:', error)
       return []
@@ -28,21 +31,43 @@ export const cartSlice: Slice<InitStateT> = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<ProductItem>) => {
-      state.items.push(action.payload)
-    },
-    removeItem: (state, action: PayloadAction<Pick<ProductItem, 'name'>>) => {
-      state.items = state.items.filter(
-        (item) => item.name !== action.payload.name,
+    addItem: (state, action: PayloadAction<ResultItem>) => {
+      const existingItem = state.items.find(
+        (item) => item.name === action.payload.name,
       )
+      if (existingItem) {
+        existingItem.count += 1
+      } else {
+        state.items.push({ ...action.payload, count: 1 })
+      }
+    },
+    removeItem: (state, action: PayloadAction<string>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload)
     },
     clearCart: (state) => {
       state.items = []
-      sessionStorage.removeItem('cartData');
+      sessionStorage.removeItem('cartData')
+    },
+    incCount: (state, action: PayloadAction<string>) => {
+      const activeItem = state.items.find(
+        (item) => item.name === action.payload,
+      )
+      if (activeItem) {
+        activeItem.count += 1
+      }
+    },
+    decCount: (state, action: PayloadAction<string>) => {
+      const activeItem = state.items.find(
+        (item) => item.name === action.payload,
+      )
+      if (activeItem && activeItem.count >0) {
+        activeItem.count -= 1
+      }
     },
   },
 })
 
-export const { addItem, removeItem, clearCart } = cartSlice.actions
+export const { addItem, removeItem, clearCart, incCount, decCount } =
+  cartSlice.actions
 
 export default cartSlice.reducer
