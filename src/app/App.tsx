@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './App.module.css'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from '../pages'
-import { ShopPage } from '../pages/productsPage'
+import { ProductsPage } from '../pages/productsPage'
 import { CartPage } from '../pages/cartPage'
 
 interface AppProps {
@@ -15,7 +15,7 @@ export function App({ dealers }: AppProps) {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<ShopPage dealers={dealers} />} />
+            <Route index element={<ProductsPage dealers={dealers} />} />
             <Route path="cart" element={<CartPage />} />
           </Route>
         </Routes>

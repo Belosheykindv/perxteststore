@@ -1,11 +1,11 @@
 .cartContainer {
-    width: calc(100%);
     height: 100%;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 8px;
+    box-sizing: border-box;
 
     .clearBtn {
         width: 100%;
