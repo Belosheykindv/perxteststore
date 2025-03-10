@@ -41,6 +41,8 @@ export const module = {
   ],
 }
 export const output = {
-  filename: 'bundle.js',
   path: path.resolve(__dirname, 'dist'),
+  filename: 'app.js',
+  library: 'App',
+  libraryTarget: 'window',
 }

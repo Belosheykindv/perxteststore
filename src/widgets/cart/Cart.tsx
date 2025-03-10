@@ -58,7 +58,7 @@ export const Cart = () => {
             />
           ))
         : 'Корзина пуста'}
-      <Button type='primary' onClick={() => handleClearCart()}>Очистить корзину</Button>
+      <Button className={styles.clearBtn} type='primary' onClick={() => handleClearCart()}>Очистить корзину</Button>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 .cartContainer {
-    width: calc(100% - 18px);
     border: 1px solid violet;
     border-radius: 8px;
     display: flex;
@@ -9,16 +8,13 @@
     align-items: center;
     position: relative;
     user-select: none;
-
+    box-sizing: border-box;
+    flex-wrap: wrap;
 
 
     article {
-        font-size: 20px;
+        font-size: 18px;
     }
-}
-
-.selected {
-    border-color: blue;
 }
 
 .delBtn {
@@ -29,10 +25,9 @@
     display: flex;
     padding: 8px;
     gap: 8px;
-    // justify-content: space-between;
     align-items: center;
     user-select: none;
-    min-width: 200px;
+    min-width: 150px;
 
     img {
         aspect-ratio: 4/3;
@@ -40,8 +35,10 @@
         max-width: 50px;
     }
 }
-.cartBtnBlock{
-    width: 220px;
+
+.cartBtnBlock {
+    width: 210px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }

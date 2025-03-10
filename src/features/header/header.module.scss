@@ -1,15 +1,14 @@
 .header {
-    width: calc(100% - 24px);
-    height: 60px;
-    border: 1px solid black;
+    min-height: 66px;
     background-color: blueviolet;
     border-radius: 8px;
-    color: aquamarine;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     padding-inline: 24px;
     margin-bottom: 12px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 
     a {
         text-decoration: none;
@@ -18,7 +17,7 @@
 
     article {
         color: white;
-        font-size: 30px;
+        font-size: 24px;
 
         &:hover {
             cursor: pointer;

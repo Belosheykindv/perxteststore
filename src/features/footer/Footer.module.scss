@@ -1,11 +1,11 @@
 .footerContainer {
-    width: calc(100% - 24px);
-    height: 60px;
+    min-height: 60px;
     border: 1px solid green;
     border-radius: 8px;
     padding-inline: 24px;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
 
     article {
         font-size: 24px;

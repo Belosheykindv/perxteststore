@@ -11,7 +11,7 @@ type CardPropsT = {
 const { Meta } = CardItem
 
 export const Card = ({ cardItem: data, addItemToCart, count }: CardPropsT) => {
-  const cardContainerClass = count
+  const cardContainerClass = count > 0
     ? `${styles.cardContainer} ${styles.counted}`
     : styles.cardContainer
   return (
@@ -39,7 +39,7 @@ export const Card = ({ cardItem: data, addItemToCart, count }: CardPropsT) => {
           >{`${data.price} $`}</Typography>
         }
       />
-      {count && (
+      {count > 0 && (
         <div className={styles.countNumber}>
           <Typography>{count}</Typography>
         </div>

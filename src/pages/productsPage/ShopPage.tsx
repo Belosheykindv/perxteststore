@@ -2,11 +2,14 @@ import React from 'react'
 import { Shop } from '../../widgets/shop/Shop'
 import { Header } from '../../features/header'
 
-export const ShopPage = () => {
+type ShopPageProsT = {
+  dealers: string[]
+}
+export const ShopPage = ({dealers}: ShopPageProsT) => {
   return (
     <>
       <Header />
-      <Shop />
+      <Shop dealers={dealers} />
     </>
   )
 }

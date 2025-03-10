@@ -3,19 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { v1 } from 'uuid'
 
 import style from './Shop.module.css'
-import { useGetDealersQuery, useGetProductsQuery } from '../../shared/api'
+import { useGetProductsQuery } from '../../shared/api'
 import { addItem } from '../../shared/store/cart'
 import { AppDispatch, RootState } from '../../shared/store/store'
 import { Card } from '../../features/productCard'
 
-export const Shop = () => {
+type ShopProsT = {
+  dealers: string[]
+}
+export const Shop = ({ dealers }: ShopProsT) => {
   const [products, setProducts] = useState<ProductItem[]>([])
-  const { data: dealersData } = useGetDealersQuery()
-  const {
-    data: productsData,
-    isSuccess,
-    isError,
-  } = useGetProductsQuery(dealersData ? dealersData : [])
+
+  const { data: productsData, isSuccess } = useGetProductsQuery(dealers)
 
   const cartItems = useSelector((state: RootState) => state.cart.items)
 
@@ -25,7 +24,7 @@ export const Shop = () => {
     const newItem = { ...item, id: `cart_${v1()}` }
     dispatch(addItem(newItem))
   }
-  // console.log('test ', products, cartItems)
+
   useEffect(() => {
     if (isSuccess && productsData) {
       const productsWithId = productsData.map((item) => ({ ...item, id: v1() }))
@@ -33,7 +32,7 @@ export const Shop = () => {
       setProducts(productsWithId)
     }
   }, [productsData, isSuccess])
-console.log('cart items ', cartItems)
+
   return (
     <div className={style.shopContainer}>
       {products && products.length > 0
@@ -43,11 +42,11 @@ console.log('cart items ', cartItems)
               key={item.id}
               addItemToCart={handleAddItem}
               count={
-                cartItems.find((cart) => cart.name === item.name)?.count || 0
+                cartItems.find((cart) => cart.name === item.name)?.count || -1
               }
             />
           ))
-        : `Ошибка - ${isError}`}
+        : `Отсутствуют товары по данным идентификаторам`}
     </div>
   )
 }
