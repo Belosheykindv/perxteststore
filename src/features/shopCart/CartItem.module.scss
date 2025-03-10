@@ -29,7 +29,7 @@
     display: flex;
     padding: 8px;
     gap: 8px;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     user-select: none;
     min-width: 200px;
@@ -37,7 +37,7 @@
     img {
         aspect-ratio: 4/3;
         object-fit: contain;
-        max-width: 40px;
+        max-width: 50px;
     }
 }
 .cartBtnBlock{

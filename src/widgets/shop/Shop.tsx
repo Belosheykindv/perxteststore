@@ -8,16 +8,6 @@ import { addItem } from '../../shared/store/cart'
 import { AppDispatch, RootState } from '../../shared/store/store'
 import { Card } from '../../features/productCard'
 
-function countNames(names: ProductItem[]): { [key: string]: number } {
-  const nameCounts: { [key: string]: number } = {}
-
-  for (const name of names) {
-    nameCounts[name.name] = (nameCounts[name.name] || 0) + 1
-  }
-
-  return nameCounts
-}
-
 export const Shop = () => {
   const [products, setProducts] = useState<ProductItem[]>([])
   const { data: dealersData } = useGetDealersQuery()
