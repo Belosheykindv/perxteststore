@@ -33,7 +33,7 @@ export const Shop = () => {
       setProducts(productsWithId)
     }
   }, [productsData, isSuccess])
-
+console.log('cart items ', cartItems)
   return (
     <div className={style.shopContainer}>
       {products && products.length > 0

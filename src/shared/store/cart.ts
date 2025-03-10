@@ -40,9 +40,11 @@ export const cartSlice: Slice<InitStateT> = createSlice({
       } else {
         state.items.push({ ...action.payload, count: 1 })
       }
+      sessionStorage.setItem('cartData', JSON.stringify(state.items))
     },
     removeItem: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
+      sessionStorage.setItem('cartData', JSON.stringify(state.items))
     },
     clearCart: (state) => {
       state.items = []
