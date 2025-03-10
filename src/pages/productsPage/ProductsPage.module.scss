@@ -1,5 +1,9 @@
 .productPageContainer {
-    width: 100%;
+    max-width: 976px;
     flex-direction: column;
     display: flex;
+    margin: 0 auto;
+    box-shadow: 2px 2px 20px -6px black;
+    border-radius: 8px;
+    padding: 4px;
 }

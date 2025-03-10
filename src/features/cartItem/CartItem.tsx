@@ -3,6 +3,7 @@ import { Button, Space, Typography } from 'antd'
 
 import styles from './CartItem.module.scss'
 import { CardTitle, InputCounter } from './atoms'
+import { BASE_URL } from '../../shared/constants/settings'
 
 type CartItemsPropsT = {
   item: ProductItem
@@ -26,7 +27,7 @@ export const CartItem = ({
     <Space className={styles.cartContainer} onClick={() => onSelect(item.id)}>
       <CardTitle
         name={item.name}
-        image={`https://test-frontend.dev.int.perx.ru${item.image}`}
+        image={`${BASE_URL}${item.image}`}
       />
       <Space className={styles.cartBtnBlock}>
         <InputCounter

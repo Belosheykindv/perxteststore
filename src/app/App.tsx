@@ -1,6 +1,8 @@
 import React from 'react'
-import styles from './App.module.css'
 import { HashRouter, Route, Routes } from 'react-router-dom'
+
+import styles from './App.module.css'
+
 import { Layout } from '../pages'
 import { ProductsPage } from '../pages/productsPage'
 import { CartPage } from '../pages/cartPage'

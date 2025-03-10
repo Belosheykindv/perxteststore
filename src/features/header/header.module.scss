@@ -1,7 +1,5 @@
 .header {
     min-height: 66px;
-    background-color: blueviolet;
-    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,14 +7,14 @@
     margin-bottom: 12px;
     box-sizing: border-box;
     flex-wrap: wrap;
-
+    border-bottom: 1px solid black;
     a {
         text-decoration: none;
         height: fit-content;
     }
 
     article {
-        color: white;
+        color: black;
         font-size: 24px;
 
         &:hover {

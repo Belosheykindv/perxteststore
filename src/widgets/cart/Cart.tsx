@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 
 import styles from './Cart.module.scss'
-import { useDispatch, useSelector } from 'react-redux'
-import { CartItem } from '../../features/shopCart'
+
+import { CartItem } from '../../features/cartItem'
 import { AppDispatch, RootState } from '../../shared/store/store'
-import { clearCart, decCount, incCount, removeItem } from '../../shared/store/cart'
+import {
+  clearCart,
+  decCount,
+  incCount,
+  removeItem,
+} from '../../shared/store/cart'
 
 export const Cart = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([])
@@ -58,7 +64,13 @@ export const Cart = () => {
             />
           ))
         : 'Корзина пуста'}
-      <Button className={styles.clearBtn} type='primary' onClick={() => handleClearCart()}>Очистить корзину</Button>
+      <Button
+        className={styles.clearBtn}
+        type="primary"
+        onClick={() => handleClearCart()}
+      >
+        Очистить корзину
+      </Button>
     </div>
   )
 }

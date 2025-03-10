@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './ProductsPage.module.scss'
 import { Header } from '../../features/header'
-import { Shop } from '../../widgets/shop'
+import { Shop } from '../../widgets/products'
 
 type ProductsPagePropsT = {
   dealers: string[]
