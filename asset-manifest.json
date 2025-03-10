@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.abea7feb.css",
-    "main.js": "/static/js/main.ae526e17.js",
-    "index.html": "/index.html",
-    "main.abea7feb.css.map": "/static/css/main.abea7feb.css.map",
-    "main.ae526e17.js.map": "/static/js/main.ae526e17.js.map"
+    "main.css": "/perxteststore/static/css/main.abea7feb.css",
+    "main.js": "/perxteststore/static/js/main.ae526e17.js",
+    "index.html": "/perxteststore/index.html",
+    "main.abea7feb.css.map": "/perxteststore/static/css/main.abea7feb.css.map",
+    "main.ae526e17.js.map": "/perxteststore/static/js/main.ae526e17.js.map"
   },
   "entrypoints": [
     "static/css/main.abea7feb.css",
