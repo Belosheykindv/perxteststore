@@ -60,11 +60,4 @@ export const CardComponent = ({
   )
 }
 
-const areEqual = (prevProps: CardPropsT, nextProps: CardPropsT) => {
-  return (
-    prevProps.cardItem === nextProps.cardItem &&
-    prevProps.count === nextProps.count
-  )
-}
-
-export const Card = React.memo(CardComponent, areEqual)
+export const Card = React.memo(CardComponent)
