@@ -62,7 +62,7 @@ export const cartSlice: Slice<InitStateT> = createSlice({
       const activeItem = state.items.find(
         (item) => item.name === action.payload,
       )
-      if (activeItem && activeItem.count >0) {
+      if (activeItem && activeItem.count > 0) {
         activeItem.count -= 1
       }
     },

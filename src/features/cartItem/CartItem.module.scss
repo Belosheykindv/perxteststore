@@ -13,15 +13,45 @@
     article {
         font-size: 18px;
     }
+
+    .counter {
+        gap: 0;
+        border: 1px solid rgb(203, 202, 202);
+        border-radius: 8px;
+        width: 100px;
+    }
+
+    @media screen and (max-width: 538px) {
+        width: 242px;
+
+        .cartTitle {
+            min-width: 166px;
+            justify-content: space-between;
+            padding-inline: 30px;
+
+            img {
+                max-width: 40px;
+            }
+        }
+
+        article {
+            font-size: 16px;
+        }
+
+        .cartBtnBlock {
+            width: 226px;
+        }
+    }
 }
 
 .delBtn {
     width: 20px;
-    color: white;
-    background-color: rgba(255, 0, 0, 0.861);
+    color: black;
+    background-color: white;
+    border-color: rgba(255, 0, 0, 0.526);
 
     &:hover {
-        background-color: rgba(255, 0, 0, 0.861) !important;
+        background-color: rgb(255, 0, 0) !important;
     }
 }
 
@@ -44,5 +74,4 @@
     width: 210px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
 }

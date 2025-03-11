@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+    flex-wrap: wrap;
 
     article {
         font-size: 24px;
@@ -13,5 +14,17 @@
     .finalPrice {
         font-size: 36px;
         color: green;
+    }
+    @media screen and (max-width: 538px) {
+        justify-content: center;
+        padding-block: 16px;
+       article {
+        // font-size: 16px;
+        text-wrap: nowrap;
+       }
+       .finalPrice {
+        // font-size: 28px;
+        text-wrap: nowrap;
+       }
     }
 }

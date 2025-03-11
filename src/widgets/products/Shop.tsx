@@ -4,7 +4,7 @@ import { v1 } from 'uuid'
 
 import style from './Shop.module.css'
 import { useGetProductsQuery } from '../../shared/api'
-import { addItem } from '../../shared/store/cart'
+import { addItem, decCount } from '../../shared/store/cart'
 import { AppDispatch, RootState } from '../../shared/store/store'
 import { Card } from '../../features/productCard'
 
@@ -24,6 +24,9 @@ export const Shop = ({ dealers }: ShopProsT) => {
     const newItem = { ...item, id: `cart_${v1()}` }
     dispatch(addItem(newItem))
   }
+  const handleDecCount = (name: string) => {
+    dispatch(decCount(name))
+  }
 
   useEffect(() => {
     if (isSuccess && productsData) {
@@ -41,6 +44,7 @@ export const Shop = ({ dealers }: ShopProsT) => {
               cardItem={item}
               key={item.id}
               addItemToCart={handleAddItem}
+              decItemsCount={handleDecCount}
               count={
                 cartItems.find((cart) => cart.name === item.name)?.count || -1
               }

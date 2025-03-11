@@ -8,12 +8,20 @@
     box-sizing: border-box;
 
     .clearBtn {
-        width: 140px;
-        color: white;
-        background-color: rgba(255, 0, 0, 0.861);
+        width: 210px;
+        margin-right: 8px;
+        color: black;
+        background-color: white;
+        border-color: rgba(255, 0, 0, 0.526);
         align-self: flex-end;
         &:hover {
             background-color: rgba(255, 0, 0, 0.861) !important;
+        }
+    }
+    @media screen and (max-width: 538px) {
+        .clearBtn{
+            width: 100%;
+            margin-right: 0px;
         }
     }
 }

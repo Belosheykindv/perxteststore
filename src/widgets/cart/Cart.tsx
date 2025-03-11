@@ -7,11 +7,13 @@ import styles from './Cart.module.scss'
 import { CartItem } from '../../features/cartItem'
 import { AppDispatch, RootState } from '../../shared/store/store'
 import {
+  addItem,
   clearCart,
   decCount,
   incCount,
   removeItem,
 } from '../../shared/store/cart'
+import { v1 } from 'uuid'
 
 export const Cart = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([])
@@ -42,10 +44,12 @@ export const Cart = () => {
   const handleDecCount = (name: string) => {
     dispatch(decCount(name))
   }
+
   useEffect(() => {
     if (cartItems.length > 0) {
       sessionStorage.setItem('cartData', JSON.stringify(cartItems))
     }
+    cartItems.forEach(item=> item.count === 0 &&  dispatch(removeItem(item.id)) )
   }, [cartItems])
 
   return (

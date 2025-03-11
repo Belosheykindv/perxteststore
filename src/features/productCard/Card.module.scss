@@ -2,15 +2,8 @@
     position: relative;
     user-select: none;
     border-width: 2px;
-}
-
-.metaTitle {
-    font-size: 20px;
-}
-
-.metaPrice {
-    font-size: 24px;
-    color: grey;
+    padding: 8px;
+    height: 300px;
 }
 
 .counted {
@@ -18,22 +11,48 @@
 }
 
 .countNumber {
-    // background-color: rgb(254, 247, 35);
     width: 24px;
     height: 24px;
     padding: 4px;
-    border-radius: 50%;
+    border-radius: 6px;
     justify-content: center;
     display: flex;
     align-items: center;
     position: absolute;
     bottom: 0;
-    right: 0;
-    transform: translateX(-20%) translateY(-20%);
-    border: 1px solid black;
+    right: 50%;
+    transform: translateX(50%) translateY(-6px);
+    border: 1px solid #d9d9d9;
 
     article {
         color: black;
         font-size: 15px;
+    }
+}
+
+.plusBtn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateX(20%) translateY(-8px);
+}
+
+.minusBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-20%) translateY(-8px);
+}
+
+.cardMeta {
+    height: 70px;
+
+    .metaTitle {
+        font-size: 20px;
+    }
+
+    .metaPrice {
+        font-size: 24px;
+        color: grey;
     }
 }

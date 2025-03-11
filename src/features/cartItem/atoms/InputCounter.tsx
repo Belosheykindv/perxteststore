@@ -1,6 +1,9 @@
 import { Button, InputNumber, Space } from 'antd'
 import React from 'react'
+
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
+
+import styles from '../CartItem.module.scss'
 
 type InputCounterPropsT = {
   count: number
@@ -15,7 +18,7 @@ export const InputCounter = ({
   itemName,
 }: InputCounterPropsT) => {
   return (
-    <Space style={{gap: 0, border: '1px solid grey', borderRadius: '8px', width: '100px'}}>
+    <Space className={styles.counter}>
       <Button onClick={() => onPlus(itemName)} icon={<PlusOutlined />} type='link' />
       <InputNumber value={count} controls={false} readOnly variant='borderless' style={{width: '40px'}} />
       <Button onClick={() => onMinus(itemName)} icon={<MinusOutlined />} type='link'/>

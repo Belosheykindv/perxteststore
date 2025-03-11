@@ -10,4 +10,18 @@
     box-shadow: 2px 2px 20px 1px black;
     border-radius: 8px;
     padding: 4px;
+    @media screen and (max-width: 1016px) {
+        justify-content: center;
+        width: 750px;
+    }
+
+    @media screen and (max-width: 769px) {
+        justify-content: center;
+        width: 500px;
+    }
+
+    @media screen and (max-width: 538px) {
+        justify-content: center;
+        width: 250px;
+    }
 }
