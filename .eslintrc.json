@@ -16,7 +16,8 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "project": ["./tsconfig.json", "./tsconfig.node.json"],
-    "tsconfigRootDir": "."
+    "tsconfigRootDir": ".",
+    "moduleResolution": "nodenext"
   },
   "plugins": [
     "@typescript-eslint",
@@ -34,7 +35,7 @@
       }
     ],
     "indent": ["error", 2, { "SwitchCase": 1 }],
-    "linebreak-style": ["warn", "windows"],
+    // "linebreak-style": ["warn", "windows"],
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-double"],
     "no-multiple-empty-lines": [
@@ -58,7 +59,7 @@
     ],
     "react/react-in-jsx-scope": "off",
     "max-len": ["error", { "code": 90 }],
-    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/newline-after-import": ["error", { "count": 2 }],
     "eol-last": "error",
     "react-refresh/only-export-components": [
       "warn",

@@ -6,6 +6,7 @@ import cartReducer from './cart'
 import { productsApi } from '../api/getProducts'
 import { dealersIdApi } from '../api/getDealersId'
 
+
 const rootReducer = combineReducers({
   [productsApi.reducerPath]: productsApi.reducer,
   [dealersIdApi.reducerPath]: dealersIdApi.reducer,
