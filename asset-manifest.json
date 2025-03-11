@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/perxteststore/static/css/main.ff9ffc52.css",
+    "main.css": "/perxteststore/static/css/main.650c18ad.css",
     "main.js": "/perxteststore/static/js/main.40bc31ba.js",
     "index.html": "/perxteststore/index.html",
-    "main.ff9ffc52.css.map": "/perxteststore/static/css/main.ff9ffc52.css.map",
+    "main.650c18ad.css.map": "/perxteststore/static/css/main.650c18ad.css.map",
     "main.40bc31ba.js.map": "/perxteststore/static/js/main.40bc31ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff9ffc52.css",
+    "static/css/main.650c18ad.css",
     "static/js/main.40bc31ba.js"
   ]
 }
