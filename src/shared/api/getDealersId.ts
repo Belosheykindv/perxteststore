@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { DEALERS_URL } from '../constants/settings'
+import { DEALERS_URL } from 'shared/constants/settings'
 
 
 export const dealersIdApi = createApi({

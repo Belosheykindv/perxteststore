@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { v1 as uuidv1 } from 'uuid'
 
-import { PRODUCTS_URL } from '../constants/settings'
+import { PRODUCTS_URL } from 'shared/constants/settings'
 
 
 export const productsApi = createApi({
