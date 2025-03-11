@@ -1,7 +1,7 @@
-import React from 'react'
 import { Space, Typography } from 'antd'
 
 import styles from '../CartItem.module.scss'
+
 
 type CardTitlePropsT = {
   name: string

@@ -1,8 +1,8 @@
-import React from 'react'
 import { Button, Typography } from 'antd'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 
 import styles from '../Card.module.scss'
+
 
 type CardCounterProsT = {
   count: number

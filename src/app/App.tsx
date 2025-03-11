@@ -1,4 +1,3 @@
-import React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import styles from './App.module.css'
@@ -6,6 +5,7 @@ import styles from './App.module.css'
 import { Layout } from '../pages'
 import { CartPage } from '../pages/cartPage'
 import { ProductsPage } from '../pages/productsPage'
+
 
 interface AppProps {
   dealers: string[]

@@ -5,6 +5,7 @@ import styles from './CartItem.module.scss'
 import { CardTitle, InputCounter } from './atoms'
 import { BASE_URL } from '../../shared/constants/settings'
 
+
 type CartItemsPropsT = {
   item: ProductItem
   deleteItem: (id: string) => void

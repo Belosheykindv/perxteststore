@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit'
 
+
 export interface ResultItem extends ProductItem {
   count: number
 }
@@ -15,7 +16,7 @@ export const cartSlice: Slice<InitStateT> = createSlice({
   reducers: {
     addItem: (state, action: PayloadAction<ResultItem>) => {
       const existingItem = state.items.find(
-        (item) => item.name === action.payload.name,
+        (item) => item.name === action.payload.name
       )
       if (existingItem) {
         existingItem.count += 1
@@ -31,7 +32,7 @@ export const cartSlice: Slice<InitStateT> = createSlice({
     },
     incCount: (state, action: PayloadAction<string>) => {
       const activeItem = state.items.find(
-        (item) => item.name === action.payload,
+        (item) => item.name === action.payload
       )
       if (activeItem) {
         activeItem.count += 1
@@ -39,7 +40,7 @@ export const cartSlice: Slice<InitStateT> = createSlice({
     },
     decCount: (state, action: PayloadAction<string>) => {
       const activeItem = state.items.find(
-        (item) => item.name === action.payload,
+        (item) => item.name === action.payload
       )
       if (activeItem && activeItem.count > 0) {
         activeItem.count -= 1

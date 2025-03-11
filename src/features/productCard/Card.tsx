@@ -6,6 +6,7 @@ import styles from './Card.module.scss'
 import { CardCounter } from './atoms'
 import { BASE_URL } from '../../shared/constants/settings'
 
+
 type CardPropsT = {
   cardItem: ProductItem
   addItemToCart: (item: ProductItem) => void

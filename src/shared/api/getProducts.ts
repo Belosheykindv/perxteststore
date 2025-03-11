@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { v1 as uuidv1 } from 'uuid'
 
 import { PRODUCTS_URL } from '../constants/settings'
+
 
 export const productsApi = createApi({
   reducerPath: 'productsApi',
@@ -14,8 +16,12 @@ export const productsApi = createApi({
         }
         return url
       },
+      transformResponse: (response: ProductItem[]) => {
+        return response.map((item) => ({ ...item, id: uuidv1() }))
+      },
     }),
   }),
 })
+
 export const { useGetProductsQuery } = productsApi
 export default productsApi

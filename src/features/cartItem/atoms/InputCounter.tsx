@@ -1,9 +1,9 @@
-import React from 'react'
 import { Button, InputNumber, Space } from 'antd'
 
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 
 import styles from '../CartItem.module.scss'
+
 
 type InputCounterPropsT = {
   count: number

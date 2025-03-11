@@ -1,6 +1,6 @@
 import { v1 } from 'uuid'
+import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useCallback, useEffect, useState } from 'react'
 
 import style from './Products.module.css'
 
@@ -9,12 +9,12 @@ import { useGetProductsQuery } from '../../shared/api'
 import { addItem, decCount } from '../../shared/store/cart'
 import { AppDispatch, RootState } from '../../shared/store/store'
 
+
 type ShopProsT = {
   dealers: string[]
 }
 
 export const Products = ({ dealers }: ShopProsT) => {
-  const [products, setProducts] = useState<ProductItem[]>([])
 
   const { data: productsData, isSuccess } = useGetProductsQuery(dealers)
 
@@ -27,38 +27,31 @@ export const Products = ({ dealers }: ShopProsT) => {
       const newItem = { ...item, id: `cart_${v1()}` }
       dispatch(addItem(newItem))
     },
-    [dispatch],
+    [dispatch]
   )
 
   const handleDecCount = useCallback(
     (name: string) => {
       dispatch(decCount(name))
     },
-    [dispatch],
+    [dispatch]
   )
-
-  useEffect(() => {
-    if (isSuccess && productsData) {
-      const productsWithId = productsData.map((item) => ({ ...item, id: v1() }))
-      setProducts(productsWithId)
-    }
-  }, [productsData, isSuccess])
 
   return (
     <div className={style.shopContainer}>
-      {products && isSuccess && products.length > 0
-        ? products.map((item) => (
-            <Card
-              cardItem={item}
-              key={item.id}
-              addItemToCart={handleAddItem}
-              decItemsCount={handleDecCount}
-              count={
-                cartItems.find((cart) => cart.name === item.name)?.count || -1
-              }
-            />
-          ))
-        : `Отсутствуют товары по данным идентификаторам`}
+      {productsData && isSuccess && productsData.length > 0
+        ? productsData.map((item) => (
+          <Card
+            cardItem={item}
+            key={item.id}
+            addItemToCart={handleAddItem}
+            decItemsCount={handleDecCount}
+            count={
+              cartItems.find((cart) => cart.name === item.name)?.count || -1
+            }
+          />
+        ))
+        : 'Отсутствуют товары по данным идентификаторам'}
     </div>
   )
 }

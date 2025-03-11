@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import styles from './Cart.module.scss'
 
@@ -12,6 +12,7 @@ import {
   incCount,
   removeItem,
 } from '../../shared/store/cart'
+
 
 export const Cart = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([])
@@ -28,7 +29,7 @@ export const Cart = () => {
     (id: string) => {
       dispatch(removeItem(id))
     },
-    [dispatch],
+    [dispatch]
   )
 
   const handleSelect = useCallback(
@@ -36,29 +37,29 @@ export const Cart = () => {
       setSelectedItems((prevSelected) =>
         prevSelected.includes(itemId)
           ? prevSelected.filter((id) => id !== itemId)
-          : [...prevSelected, itemId],
+          : [...prevSelected, itemId]
       )
     },
-    [dispatch],
+    []
   )
 
   const handleIncCount = useCallback(
     (name: string) => {
       dispatch(incCount(name))
     },
-    [dispatch],
+    [dispatch]
   )
 
   const handleDecCount = useCallback(
     (name: string) => {
       dispatch(decCount(name))
     },
-    [dispatch],
+    [dispatch]
   )
 
   useEffect(() => {
     cartItems.forEach(
-      (item) => item.count === 0 && dispatch(removeItem(item.id)),
+      (item) => item.count === 0 && dispatch(removeItem(item.id))
     )
   }, [cartItems, dispatch])
 
@@ -66,17 +67,17 @@ export const Cart = () => {
     <div className={styles.cartContainer}>
       {cartItems.length > 0
         ? cartItems.map((item) => (
-            <CartItem
-              item={item}
-              key={`cart_${item.id}`}
-              deleteItem={handleDeleteItem}
-              isSelected={selectedItems.includes(item.id)}
-              onSelect={handleSelect}
-              count={item.count}
-              onIncrement={handleIncCount}
-              onDecrement={handleDecCount}
-            />
-          ))
+          <CartItem
+            item={item}
+            key={`cart_${item.id}`}
+            deleteItem={handleDeleteItem}
+            isSelected={selectedItems.includes(item.id)}
+            onSelect={handleSelect}
+            count={item.count}
+            onIncrement={handleIncCount}
+            onDecrement={handleDecCount}
+          />
+        ))
         : 'Корзина пуста'}
       {cartItems.length !== 0 && (
         <Button
