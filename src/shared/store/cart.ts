@@ -6,26 +6,8 @@ export interface ResultItem extends ProductItem {
 type InitStateT = {
   items: ResultItem[]
 }
-const storedCartItems: ResultItem[] = (() => {
-  const storedData = sessionStorage.getItem('cartData')
 
-  if (storedData) {
-    try {
-      return JSON.parse(storedData) as ResultItem[]
-    } catch (error) {
-      console.error('Error parsing dealersData from sessionStorage:', error)
-      return []
-    }
-  }
-  return []
-})()
-
-const initialState: InitStateT =
-  storedCartItems.length > 0
-    ? {
-        items: storedCartItems,
-      }
-    : { items: [] }
+const initialState: InitStateT = { items: [] }
 
 export const cartSlice: Slice<InitStateT> = createSlice({
   name: 'cart',
@@ -40,15 +22,12 @@ export const cartSlice: Slice<InitStateT> = createSlice({
       } else {
         state.items.push({ ...action.payload, count: 1 })
       }
-      sessionStorage.setItem('cartData', JSON.stringify(state.items))
     },
     removeItem: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
-      sessionStorage.setItem('cartData', JSON.stringify(state.items))
     },
     clearCart: (state) => {
       state.items = []
-      sessionStorage.removeItem('cartData')
     },
     incCount: (state, action: PayloadAction<string>) => {
       const activeItem = state.items.find(

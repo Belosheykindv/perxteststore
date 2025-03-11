@@ -1,24 +1,12 @@
-import React, { StrictMode } from 'react'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client'
+import React, { StrictMode } from 'react'
+import { PersistGate } from 'redux-persist/integration/react'
 
-import { App } from './app'
-import { store } from './shared/store/store'
 import '@ant-design/v5-patch-for-react-19'
 
-// const rootElement = document.getElementById('root')
-// if (rootElement) {
-//   const root = ReactDOM.createRoot(rootElement)
-//   root.render(
-//     <StrictMode>
-//         <Provider store={store}>
-//           <App />
-//         </Provider>
-//     </StrictMode>,
-//   )
-// } else {
-//   console.error('Root element not found!')
-// }
+import { App } from './app'
+import { persistor, store } from './shared/store/store'
 
 declare global {
   interface Window {
@@ -37,7 +25,9 @@ window.startApp = (params: string[]) => {
     root.render(
       <StrictMode>
         <Provider store={store}>
-          <App dealers={params} />
+          <PersistGate loading={null} persistor={persistor}>
+            <App dealers={params} />
+          </PersistGate>
         </Provider>
       </StrictMode>,
     )

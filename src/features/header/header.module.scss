@@ -7,6 +7,11 @@
     box-sizing: border-box;
     flex-wrap: wrap;
     border-bottom: 1px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+
     a {
         text-decoration: none;
         height: fit-content;
@@ -21,12 +26,14 @@
             color: gold;
         }
     }
+
     @media screen and (max-width: 538px) {
         justify-content: center;
         margin-bottom: 12px;
         padding-block: 8px;
+
         article {
             font-size: 20px;
         }
-      }
+    }
 }

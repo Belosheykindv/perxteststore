@@ -14,12 +14,14 @@
         background-color: white;
         border-color: rgba(255, 0, 0, 0.526);
         align-self: flex-end;
+
         &:hover {
             background-color: rgba(255, 0, 0, 0.861) !important;
         }
     }
+
     @media screen and (max-width: 538px) {
-        .clearBtn{
+        .clearBtn {
             width: 100%;
             margin-right: 0px;
         }

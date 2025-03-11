@@ -1,16 +1,16 @@
-import { Space, Typography } from 'antd'
 import React from 'react'
+import { Space, Typography } from 'antd'
 
 import styles from '../CartItem.module.scss'
 
 type CardTitlePropsT = {
-    name: string
-    image: string
+  name: string
+  image: string
 }
-export const CardTitle = ({name, image}: CardTitlePropsT) => {
+export const CardTitle = ({ name, image }: CardTitlePropsT) => {
   return (
     <Space className={styles.cartTitle}>
-      <img src={image} alt='item'/>
+      <img src={image} alt="item" />
       <Typography>{name}</Typography>
     </Space>
   )

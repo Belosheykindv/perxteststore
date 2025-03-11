@@ -1,20 +1,21 @@
 import React from 'react'
-import { Button, Card as CardItem, Typography } from 'antd'
-
-import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
+import { Card as CardItem, Typography } from 'antd'
 
 import styles from './Card.module.scss'
 
+import { CardCounter } from './atoms'
+import { BASE_URL } from '../../shared/constants/settings'
+
 type CardPropsT = {
   cardItem: ProductItem
-  addItemToCart?: (item: ProductItem) => void
+  addItemToCart: (item: ProductItem) => void
   decItemsCount: (name: string) => void
   count: number
 }
 const { Meta } = CardItem
 
-export const Card = ({
-  cardItem: data,
+export const CardComponent = ({
+  cardItem,
   addItemToCart,
   decItemsCount,
   count,
@@ -23,6 +24,7 @@ export const Card = ({
     count > 0
       ? `${styles.cardContainer} ${styles.counted}`
       : styles.cardContainer
+
   return (
     <CardItem
       className={cardContainerClass}
@@ -31,40 +33,36 @@ export const Card = ({
         <img
           alt="example"
           style={{ objectFit: 'contain', aspectRatio: '4/3', width: '220px' }}
-          src={`https://test-frontend.dev.int.perx.ru${data.image}`}
+          src={`${BASE_URL}${cardItem.image}`}
         />
       }
     >
       <Meta
         className={styles.cardMeta}
         title={
-          <Typography className={styles.metaTitle}>{data.name}</Typography>
+          <Typography className={styles.metaTitle}>{cardItem.name}</Typography>
         }
         description={
           <Typography
             className={styles.metaPrice}
-          >{`${data.price} $`}</Typography>
+          >{`${cardItem.price} $`}</Typography>
         }
       />
-      {count > 0 && (
-        <>
-          <div className={styles.countNumber}>
-            <Typography>{count}</Typography>
-          </div>
-          <div className={styles.minusBtn}>
-            <Button
-              onClick={() => decItemsCount && decItemsCount(data.name)}
-              icon={<MinusOutlined />}
-            ></Button>
-          </div>
-        </>
-      )}
-      <div className={styles.plusBtn}>
-        <Button
-          onClick={() => addItemToCart && addItemToCart(data)}
-          icon={<PlusOutlined />}
-        ></Button>
-      </div>
+      <CardCounter
+        count={count}
+        cardItem={cardItem}
+        addItemToCart={addItemToCart}
+        decItemsCount={decItemsCount}
+      />
     </CardItem>
   )
 }
+
+const areEqual = (prevProps: CardPropsT, nextProps: CardPropsT) => {
+  return (
+    prevProps.cardItem === nextProps.cardItem &&
+    prevProps.count === nextProps.count
+  )
+}
+
+export const Card = React.memo(CardComponent, areEqual)

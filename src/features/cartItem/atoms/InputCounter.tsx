@@ -1,5 +1,5 @@
-import { Button, InputNumber, Space } from 'antd'
 import React from 'react'
+import { Button, InputNumber, Space } from 'antd'
 
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 
@@ -11,6 +11,7 @@ type InputCounterPropsT = {
   onMinus: (name: string) => void
   itemName: string
 }
+
 export const InputCounter = ({
   count,
   onPlus,
@@ -19,9 +20,23 @@ export const InputCounter = ({
 }: InputCounterPropsT) => {
   return (
     <Space className={styles.counter}>
-      <Button onClick={() => onPlus(itemName)} icon={<PlusOutlined />} type='link' />
-      <InputNumber value={count} controls={false} readOnly variant='borderless' style={{width: '40px'}} />
-      <Button onClick={() => onMinus(itemName)} icon={<MinusOutlined />} type='link'/>
+      <Button
+        onClick={() => onPlus(itemName)}
+        icon={<PlusOutlined />}
+        type="link"
+      />
+      <InputNumber
+        value={count}
+        controls={false}
+        readOnly
+        variant="borderless"
+        style={{ width: '40px' }}
+      />
+      <Button
+        onClick={() => onMinus(itemName)}
+        icon={<MinusOutlined />}
+        type="link"
+      />
     </Space>
   )
 }

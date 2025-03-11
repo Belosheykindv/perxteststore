@@ -15,7 +15,7 @@ type CartItemsPropsT = {
   onDecrement: (name: string) => void
 }
 
-export const CartItem = ({
+export const CartItemComponent = ({
   item,
   onSelect,
   deleteItem,
@@ -25,10 +25,7 @@ export const CartItem = ({
 }: CartItemsPropsT) => {
   return (
     <Space className={styles.cartContainer} onClick={() => onSelect(item.id)}>
-      <CardTitle
-        name={item.name}
-        image={`${BASE_URL}${item.image}`}
-      />
+      <CardTitle name={item.name} image={`${BASE_URL}${item.image}`} />
       <Space className={styles.cartBtnBlock}>
         <InputCounter
           count={count}
@@ -49,3 +46,5 @@ export const CartItem = ({
     </Space>
   )
 }
+
+export const CartItem = React.memo(CartItemComponent)

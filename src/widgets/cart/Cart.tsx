@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react'
 import { Button } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import styles from './Cart.module.scss'
 
 import { CartItem } from '../../features/cartItem'
 import { AppDispatch, RootState } from '../../shared/store/store'
 import {
-  addItem,
   clearCart,
   decCount,
   incCount,
   removeItem,
 } from '../../shared/store/cart'
-import { v1 } from 'uuid'
 
 export const Cart = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([])
@@ -22,35 +20,47 @@ export const Cart = () => {
 
   const dispatch = useDispatch<AppDispatch>()
 
-  const handleClearCart = () => {
+  const handleClearCart = useCallback(() => {
     dispatch(clearCart('nonArgument'))
-  }
+  }, [dispatch])
 
-  const handleDeleteItem = (id: string) => {
-    dispatch(removeItem(id))
-  }
+  const handleDeleteItem = useCallback(
+    (id: string) => {
+      dispatch(removeItem(id))
+    },
+    [dispatch],
+  )
 
-  const handleSelect = (itemId: string) => {
-    setSelectedItems((prevSelected) =>
-      prevSelected.includes(itemId)
-        ? prevSelected.filter((id) => id !== itemId)
-        : [...prevSelected, itemId],
-    )
-  }
+  const handleSelect = useCallback(
+    (itemId: string) => {
+      setSelectedItems((prevSelected) =>
+        prevSelected.includes(itemId)
+          ? prevSelected.filter((id) => id !== itemId)
+          : [...prevSelected, itemId],
+      )
+    },
+    [dispatch],
+  )
 
-  const handleIncCount = (name: string) => {
-    dispatch(incCount(name))
-  }
-  const handleDecCount = (name: string) => {
-    dispatch(decCount(name))
-  }
+  const handleIncCount = useCallback(
+    (name: string) => {
+      dispatch(incCount(name))
+    },
+    [dispatch],
+  )
+
+  const handleDecCount = useCallback(
+    (name: string) => {
+      dispatch(decCount(name))
+    },
+    [dispatch],
+  )
 
   useEffect(() => {
-    if (cartItems.length > 0) {
-      sessionStorage.setItem('cartData', JSON.stringify(cartItems))
-    }
-    cartItems.forEach(item=> item.count === 0 &&  dispatch(removeItem(item.id)) )
-  }, [cartItems])
+    cartItems.forEach(
+      (item) => item.count === 0 && dispatch(removeItem(item.id)),
+    )
+  }, [cartItems, dispatch])
 
   return (
     <div className={styles.cartContainer}>
@@ -68,13 +78,16 @@ export const Cart = () => {
             />
           ))
         : 'Корзина пуста'}
-      <Button
-        className={styles.clearBtn}
-        type="primary"
-        onClick={() => handleClearCart()}
-      >
-        Очистить корзину
-      </Button>
+      {cartItems.length !== 0 && (
+        <Button
+          className={styles.clearBtn}
+          disabled={cartItems.length === 0}
+          type="primary"
+          onClick={() => handleClearCart()}
+        >
+          Очистить корзину
+        </Button>
+      )}
     </div>
   )
 }
