@@ -2,16 +2,16 @@ import { Button } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { useCallback, useEffect, useState } from 'react'
 
-import styles from './Cart.module.scss'
-
-import { CartItem } from '../../features/cartItem'
-import { AppDispatch, RootState } from '../../shared/store/store'
+import { CartItem } from 'features/cartItem'
+import { AppDispatch, RootState } from 'shared/store/store'
 import {
   clearCart,
   decCount,
   incCount,
   removeItem,
-} from '../../shared/store/cart'
+} from 'shared/store/cart'
+
+import styles from './Cart.module.scss'
 
 
 export const Cart = () => {

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Card as CardItem, Typography } from 'antd'
 
-import styles from './Card.module.scss'
+import { BASE_URL } from 'shared/constants/settings'
 
 import { CardCounter } from './atoms'
-import { BASE_URL } from '../../shared/constants/settings'
+
+import styles from './Card.module.scss'
 
 
 type CardPropsT = {

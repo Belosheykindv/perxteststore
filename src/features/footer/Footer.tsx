@@ -1,8 +1,9 @@
 import { Space, Typography } from 'antd'
+import { useSelector } from 'react-redux'
+
+import { RootState } from 'shared/store/store'
 
 import styles from './Footer.module.scss'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../shared/store/store'
 
 
 export const Footer = () => {

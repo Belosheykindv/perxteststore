@@ -1,13 +1,12 @@
 import { StrictMode } from 'react'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client'
-
 import { PersistGate } from 'redux-persist/integration/react'
 
 import '@ant-design/v5-patch-for-react-19'
 
-import { App } from './app'
-import { persistor, store } from './shared/store/store'
+import { App } from 'app'
+import { persistor, store } from 'shared/store/store'
 
 
 declare global {

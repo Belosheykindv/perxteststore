@@ -1,6 +1,7 @@
+import { Header } from 'features/header'
+import { Products } from 'widgets/products'
+
 import styles from './ProductsPage.module.scss'
-import { Header } from '../../features/header'
-import { Products } from '../../widgets/products'
 
 
 type ProductsPagePropsT = {

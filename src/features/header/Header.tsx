@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
 
-import styles from './header.module.scss'
+import { RootState } from 'shared/store/store'
 
-import { RootState } from '../../shared/store/store'
 import { CartButton, MainPageButton } from './atoms'
+
+import styles from './header.module.scss'
 
 
 export const Header = () => {

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Button, Space, Typography } from 'antd'
 
-import styles from './CartItem.module.scss'
+import { BASE_URL } from 'shared/constants/settings'
+
 import { CardTitle, InputCounter } from './atoms'
-import { BASE_URL } from '../../shared/constants/settings'
+
+import styles from './CartItem.module.scss'
 
 
 type CartItemsPropsT = {

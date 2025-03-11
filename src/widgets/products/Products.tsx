@@ -2,12 +2,12 @@ import { v1 } from 'uuid'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import style from './Products.module.css'
+import { Card } from 'features/productCard'
+import { useGetProductsQuery } from 'shared/api'
+import { addItem, decCount } from 'shared/store/cart'
+import { AppDispatch, RootState } from 'shared/store/store'
 
-import { Card } from '../../features/productCard'
-import { useGetProductsQuery } from '../../shared/api'
-import { addItem, decCount } from '../../shared/store/cart'
-import { AppDispatch, RootState } from '../../shared/store/store'
+import style from './Products.module.scss'
 
 
 type ShopProsT = {

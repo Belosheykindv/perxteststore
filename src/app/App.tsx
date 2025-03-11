@@ -1,10 +1,10 @@
 import { HashRouter, Route, Routes } from 'react-router-dom'
 
-import styles from './App.module.css'
+import { Layout } from 'pages'
+import { CartPage } from 'pages/cartPage'
+import { ProductsPage } from 'pages/productsPage'
 
-import { Layout } from '../pages'
-import { CartPage } from '../pages/cartPage'
-import { ProductsPage } from '../pages/productsPage'
+import styles from './App.module.scss'
 
 
 interface AppProps {

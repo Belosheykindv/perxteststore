@@ -1,8 +1,8 @@
 import styles from './CartPage.module.scss'
 
-import { Cart } from '../../widgets/cart'
-import { Footer } from '../../features/footer'
-import { Header } from '../../features/header'
+import { Cart } from 'widgets/cart'
+import { Footer } from 'features/footer'
+import { Header } from 'features/header'
 
 
 export const CartPage = () => (
