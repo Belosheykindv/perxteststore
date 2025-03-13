@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Layout } from 'pages'
 import { CartPage } from 'pages/cartPage'
@@ -14,14 +14,14 @@ interface AppProps {
 export function App({ dealers }: AppProps) {
   return (
     <div className={styles.app}>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<ProductsPage dealers={dealers} />} />
             <Route path="cart" element={<CartPage />} />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   )
 }
